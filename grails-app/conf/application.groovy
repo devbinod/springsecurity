@@ -4,6 +4,8 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'np.com.pantbinod.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'np.com.pantbinod.UserRole'
 grails.plugin.springsecurity.authority.className = 'np.com.pantbinod.Role'
+grails.plugin.springsecurity.logout.postOnly = false
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -26,3 +28,19 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+grails.mail.default.from = "server@yourhost.com"
+grails.mail.default.to = "user@yourhost.com"
+
+
+grails {
+	mail {
+		host = "smtp.gmail.com"
+		port = 465
+		username = "youracount@gmail.com"
+		password = "yourpassword"
+		props = ["mail.smtp.auth":"true",
+				 "mail.smtp.socketFactory.port":"465",
+				 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+				 "mail.smtp.socketFactory.fallback":"false"]
+	}
+}
